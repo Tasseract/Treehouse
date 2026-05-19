@@ -6,6 +6,7 @@ import { Hero } from "@/components/hero";
 import { Nav } from "@/components/nav";
 import { Projects } from "@/components/projects";
 import { Tech } from "@/components/tech";
+import { Gallery } from "@/components/gallery";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Craft />
         <Tech />
         <Projects />
+        <Gallery />
         <Contact />
       </main>
       <Footer />

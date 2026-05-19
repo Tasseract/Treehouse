@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     description:
       "Pianist · Composer · Animator · Photographer · Cinematographer · Editor · Programmer.",
   },
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export const viewport: Viewport = {
