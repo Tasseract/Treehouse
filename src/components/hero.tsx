@@ -46,7 +46,7 @@ export function Hero() {
           className="mb-6 inline-flex items-center gap-2 rounded-full glass backdrop-blur-xl backdrop-saturate-150 px-4 py-1.5 text-xs font-medium text-[var(--md-on-surface-variant)]"
         >
           <Sparkles size={14} className="text-[var(--md-primary)]" />
-          Open to On-The-Job Training
+          {profile.badge}
         </motion.div>
 
         <motion.h1

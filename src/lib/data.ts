@@ -13,8 +13,17 @@ export const profile = {
   shortName: "Troy",
   role: "BS Information Technology",
   school: "Mariano Marcos State University",
+  badge: "Open to On-The-Job Training, can do summer job as well",
   tagline:
     "Information-technology student crafting at the intersection of code, sound, and image.",
+  about: {
+    headline: "A maker, across mediums.",
+    paragraphs: [
+      "I'm a Bachelor of Science in Information Technology student at Mariano Marcos State University — but I've never thought of myself as \"just a coder.\"",
+      "I work across software development, music composition, animation, photography and film — chasing the same thing in each: a feeling of considered craft. I'm formally trained in modern, AI-augmented workflows, and I treat AI as a multiplier on what I can do unaided.",
+      "I'm looking for an On-The-Job Training opportunity where I can contribute meaningfully and keep growing.",
+    ],
+  },
   location: "Currimao, Ilocos Norte · Philippines",
   email: "jhalentroyjose@gmail.com",
   phone: "+63 960 336 8917",
@@ -45,7 +54,7 @@ export const pillars: Pillar[] = [
     title: "Animator & 3D Designer",
     caption: "Blender",
     description:
-      "Modeling, shading, rigging and motion — frame by deliberate frame.",
+      "Modeling, procedural textures and animation.",
     icon: Wand2,
     accent: "secondary",
   },
@@ -131,6 +140,15 @@ export const skillGroups: SkillGroup[] = [
     title: "Networking",
     skills: [{ name: "Cisco Packet Tracer", level: 2 }],
   },
+  {
+    title: "Marketing & Communication",
+    skills: [
+      { name: "Digital Marketing", level: 3 },
+      { name: "Social Media Marketing", level: 3 },
+      { name: "Ad Design", level: 3 },
+      { name: "Dynamic Speaker", level: 3 },
+    ],
+  },
 ];
 
 export type Project = {
@@ -153,13 +171,13 @@ export const projects: Project[] = [
     cta: "Visit IYVIX.com",
   },
   {
-    title: "Weather Sound Generator",
-    caption: "Procedural audio · zero samples",
+    title: "Procedural Musgrave/Noise Texture",
+    caption: "Procedural Texture in Blender",
     description:
-      "Synthesizes rain, wind and thunder entirely from system-generated sound — no audio files used.",
-    href: "https://github.com/Tasseract",
+      "Synthesizes heightmaps, continental terrains, color ramps - within blender, no extra assets.",
+    href: "",
     external: true,
-    cta: "View on GitHub",
+    cta: "View on Gallery",
   },
   {
     title: "More on GitHub",

@@ -20,7 +20,7 @@ export function About() {
   return (
     <section id="about" className="relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
-        <SectionHeading eyebrow="About" title="A maker, across mediums." />
+        <SectionHeading eyebrow="About" title={profile.about.headline} />
 
         <div className="grid gap-8 md:grid-cols-[1.4fr_1fr]">
           <motion.div
@@ -30,22 +30,18 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <GlassCard intense className="p-8 sm:p-10">
-              <p className="text-lg leading-relaxed text-[var(--md-on-surface)] sm:text-xl">
-                I&apos;m a Bachelor of Science in Information Technology student at
-                Mariano Marcos State University — but I&apos;ve never thought of
-                myself as &ldquo;just a coder.&rdquo;
-              </p>
-              <p className="mt-5 text-base leading-relaxed text-[var(--md-on-surface-variant)] sm:text-lg">
-                I work across software development, music composition, animation,
-                photography and film — chasing the same thing in each: a feeling
-                of considered craft. I&apos;m formally trained in modern,
-                AI-augmented workflows, and I treat AI as a multiplier on what I
-                can do unaided.
-              </p>
-              <p className="mt-5 text-base leading-relaxed text-[var(--md-on-surface-variant)] sm:text-lg">
-                I&apos;m looking for an On-The-Job Training opportunity where I
-                can contribute meaningfully and keep growing.
-              </p>
+              {profile.about.paragraphs.map((text, index) => (
+                <p
+                  key={index}
+                  className={
+                    index === 0
+                      ? "text-lg leading-relaxed text-[var(--md-on-surface)] sm:text-xl"
+                      : "mt-5 text-base leading-relaxed text-[var(--md-on-surface-variant)] sm:text-lg"
+                  }
+                >
+                  {text}
+                </p>
+              ))}
             </GlassCard>
           </motion.div>
 
