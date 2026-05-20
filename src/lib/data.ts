@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const profile = {
-  name: "Jhalen Troy",
+  name: "Jhalen Troy Jose",
   shortName: "Troy",
   role: "BS Information Technology",
   school: "Mariano Marcos State University",
@@ -30,7 +30,7 @@ export const profile = {
   github: "https://github.com/Tasseract",
   githubHandle: "Tasseract",
   age: 21,
-  languages: ["English", "Filipino", "Ilocano"],
+  languages: ["English", "Filipino", "Ilocano", "German (basic)"],
 };
 
 export type Pillar = {
@@ -111,7 +111,7 @@ export const pillars: Pillar[] = [
 export const sectionHeadings = {
   craft: {
     eyebrow: "The Craft",
-    title: `${pillars.length} disciplines, one sensibility.`,
+    title: `Eight disciplines, one sensibility.`,
     description:
       "Across code, sound, and image — the throughline is craft. Each role below is a real, ongoing practice.",
   },
@@ -213,7 +213,7 @@ export const projects: Project[] = [
       "Synthesizes heightmaps, continental terrains, color ramps - within blender, no extra assets.",
     href: "",
     external: true,
-    cta: "View on Gallery",
+    cta: "View Gallery below",
   },
   {
     title: "More on GitHub",
