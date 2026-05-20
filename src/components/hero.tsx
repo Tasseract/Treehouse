@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowDown, Sparkles } from "lucide-react";
 import { MdButton } from "./ui/md-button";
+import { ThemeToggle } from "./theme-toggle";
 import { profile } from "@/lib/data";
 
 const fade = {
@@ -24,6 +25,13 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pt-32 pb-20 sm:pt-36"
     >
+      <div className="absolute right-6 top-6 z-10 flex items-center gap-3">
+        <div className="hidden rounded-full bg-[var(--md-surface-container-high)]/90 px-4 py-2 text-xs uppercase tracking-[0.28em] text-[var(--md-on-surface-variant)] shadow-sm shadow-black/5 sm:inline-flex">
+          {profile.shortName}'s hub
+        </div>
+        <ThemeToggle />
+      </div>
+
       {/* gradient blobs */}
       <div aria-hidden className="absolute inset-0 -z-10">
         <span className="hero-blob blob-1 left-[-10%] top-[-15%] h-[60vmax] w-[60vmax]" />
@@ -56,7 +64,7 @@ export function Hero() {
           variants={fade}
           className="font-display text-5xl font-semibold tracking-tight text-[var(--md-on-surface)] sm:text-7xl md:text-[clamp(4rem,8vw,8rem)]"
         >
-          {profile.name.split(" ").slice(0, -1).join(" ")}{" "}
+          {profile.name.split(" ").slice(0, -1).join(" ")} {" "}
           <span className="bg-gradient-to-br from-[var(--md-primary)] via-[var(--md-secondary)] to-[var(--md-primary)] bg-clip-text text-transparent">
             {profile.name.split(" ").at(-1)}
           </span>
@@ -69,7 +77,7 @@ export function Hero() {
           variants={fade}
           className="mt-6 max-w-2xl text-lg text-[var(--md-on-surface-variant)] sm:text-xl"
         >
-          {profile.role} · {profile.school}
+          {profile.title}
           <br />
           <span className="text-[var(--md-on-surface)]">{profile.tagline}</span>
         </motion.p>
@@ -81,19 +89,18 @@ export function Hero() {
           variants={fade}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
-          <MdButton variant="filled" size="lg" href="#projects">
-            View work
+          <MdButton variant="filled" size="lg" href="#links">
+            Explore links
           </MdButton>
-          <MdButton variant="tonal" size="lg" href="#contact">
-            Get in touch
+          <MdButton variant="tonal" size="lg" href={profile.github} external>
+            GitHub
           </MdButton>
         </motion.div>
       </div>
 
-      {/* scroll cue */}
       <motion.a
-        href="#about"
-        aria-label="Scroll to about"
+        href="#links"
+        aria-label="Scroll to links"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}

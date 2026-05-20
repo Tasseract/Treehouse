@@ -11,11 +11,12 @@ import {
 export const profile = {
   name: "Jhalen Troy Jose",
   shortName: "Troy",
-  role: "BS Information Technology",
+  role: "Link hub curator",
   school: "Mariano Marcos State University",
-  badge: "Open to On-The-Job Training and Internship Opportunities",
+  title: "A living hub for my projects, profiles, and contact points.",
+  badge: "Dynamic link tree · built with Next.js",
   tagline:
-    "Information-technology student crafting at the intersection of code, sound, and image.",
+    "This site surfaces the most important places to find my work, my code, and how to connect.",
   about: {
     headline: "A maker, across mediums.",
     paragraphs: [
@@ -32,6 +33,52 @@ export const profile = {
   age: 21,
   languages: ["English", "Filipino", "Ilocano", "German (basic)"],
 };
+
+export type LinkItem = {
+  title: string;
+  description: string;
+  href: string;
+  external?: boolean;
+  accent?: "primary" | "secondary";
+};
+
+export const links: LinkItem[] = [
+  {
+    title: "Email",
+    description: "Start a conversation directly in your inbox.",
+    href: "mailto:jhalentroyjose@gmail.com",
+    external: true,
+    accent: "primary",
+  },
+  {
+    title: "GitHub",
+    description: "Browse public code, experiments, and archived projects.",
+    href: "https://github.com/Tasseract",
+    external: true,
+    accent: "secondary",
+  },
+  {
+    title: "Treehouse repo",
+    description: "Inspect the code behind this dynamic link hub.",
+    href: "https://github.com/Tasseract/Treehouse",
+    external: true,
+    accent: "primary",
+  },
+  {
+    title: "Personal website",
+    description: "Visit the live site that inspired this link tree design.",
+    href: "https://troy.vercel.app",
+    external: true,
+    accent: "secondary",
+  },
+  {
+    title: "Resume",
+    description: "A concise summary of experience and skills.",
+    href: "https://github.com/Tasseract/Treehouse/blob/main/README.md",
+    external: true,
+    accent: "primary",
+  },
+];
 
 export type Pillar = {
   title: string;
@@ -209,7 +256,7 @@ export const projects: Project[] = [
     external: true,
     cta: "Visit IYVIX.com",
   },
-    {
+  {
     title: "BIRrevamped",
     caption: "Modernized BIR eServices",
     description:

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Jhalen Troy L. Jose — Portfolio";
+export const alt = "Treehouse — Link Hub for Troy";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -39,7 +39,7 @@ export default async function OG() {
               fontWeight: 600,
             }}
           >
-            Portfolio
+            Treehouse
           </span>
         </div>
 
@@ -53,7 +53,7 @@ export default async function OG() {
               color: "#FFFFFF",
             }}
           >
-            Jhalen Troy
+            Troy
           </span>
           <span
             style={{
@@ -67,7 +67,7 @@ export default async function OG() {
               color: "transparent",
             }}
           >
-            L. Jose
+            Jose
           </span>
         </div>
 
@@ -80,8 +80,8 @@ export default async function OG() {
             fontSize: 26,
           }}
         >
-          <span>BS Information Technology · MMSU</span>
-          <span style={{ opacity: 0.8 }}>github.com/Tasseract</span>
+          <span>Dynamic link tree · Next.js</span>
+          <span style={{ opacity: 0.8 }}>github.com/Tasseract/Treehouse</span>
         </div>
       </div>
     ),

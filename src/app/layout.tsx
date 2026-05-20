@@ -12,36 +12,32 @@ const display = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://troy.vercel.app"),
   title: {
-    default: "Jhalen Troy L. Jose — Portfolio",
-    template: "%s · Jhalen Troy L. Jose",
+    default: "Treehouse — Link Hub",
+    template: "%s · Treehouse",
   },
   description:
-    "Information-technology student crafting at the intersection of code, sound, and image — pianist, animator, photographer, cinematographer, video editor, programmer.",
+    "A dynamic link hub for creative work, code, and contact curated by Troy.",
   keywords: [
-    "Jhalen Troy Jose",
+    "Treehouse",
+    "Link tree",
     "Troy Jose",
-    "BS Information Technology",
-    "MMSU",
+    "Next.js",
+    "dynamic links",
     "portfolio",
-    "Logic Pro",
-    "Blender",
-    "Filipino developer",
-    "OJT",
+    "GitHub",
   ],
-  authors: [{ name: "Jhalen Troy L. Jose" }],
-  creator: "Jhalen Troy L. Jose",
+  authors: [{ name: "Troy Jose" }],
+  creator: "Troy Jose",
   openGraph: {
-    title: "Jhalen Troy L. Jose — Portfolio",
-    description:
-      "Pianist · Composer · Animator · Photographer · Cinematographer · Editor · Programmer.",
+    title: "Treehouse — Link Hub",
+    description: "A dynamic link hub for creative work, code, and contact curated by Troy.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jhalen Troy L. Jose — Portfolio",
-    description:
-      "Pianist · Composer · Animator · Photographer · Cinematographer · Editor · Programmer.",
+    title: "Treehouse — Link Hub",
+    description: "A dynamic link hub for creative work, code, and contact curated by Troy.",
   },
   icons: {
     icon: '/favicon.png',
