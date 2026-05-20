@@ -4,16 +4,16 @@ import { motion } from "motion/react";
 import { GlassCard } from "./ui/glass-card";
 import { SectionHeading } from "./section-heading";
 import { SkillDots } from "./ui/skill-dot";
-import { skillGroups } from "@/lib/data";
+import { sectionHeadings, skillGroups } from "@/lib/data";
 
 export function Tech() {
   return (
     <section id="tech" className="relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Tech Stack"
-          title="Tools, languages, and the systems beneath."
-          description="Self-reported proficiency on the raw, non-AI-assisted axis. With AI-augmented workflow, output is meaningfully faster."
+          eyebrow={sectionHeadings.tech.eyebrow}
+          title={sectionHeadings.tech.title}
+          description={sectionHeadings.tech.description}
         />
 
         <div className="grid gap-5 md:grid-cols-2">

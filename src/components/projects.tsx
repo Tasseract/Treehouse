@@ -5,15 +5,15 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { GlassCard } from "./ui/glass-card";
 import { SectionHeading } from "./section-heading";
-import { projects } from "@/lib/data";
+import { projects, sectionHeadings } from "@/lib/data";
 
 export function Projects() {
   return (
     <section id="projects" className="relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Selected Work"
-          title="Things I've shipped — and shipped from scratch."
+          eyebrow={sectionHeadings.projects.eyebrow}
+          title={sectionHeadings.projects.title}
         />
 
         <div className="grid gap-5 lg:grid-cols-3">

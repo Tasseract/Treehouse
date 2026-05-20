@@ -108,6 +108,25 @@ export const pillars: Pillar[] = [
   },
 ];
 
+export const sectionHeadings = {
+  craft: {
+    eyebrow: "The Craft",
+    title: `${pillars.length} disciplines, one sensibility.`,
+    description:
+      "Across code, sound, and image — the throughline is craft. Each role below is a real, ongoing practice.",
+  },
+  tech: {
+    eyebrow: "Tech Stack",
+    title: "Tools, languages, and the systems beneath.",
+    description:
+      "Self-reported proficiency on the raw, non-AI-assisted axis. With AI-augmented workflow, output is meaningfully faster.",
+  },
+  projects: {
+    eyebrow: "Selected Work",
+    title: "Things I've done— and shipped from scratch.",
+  },
+};
+
 export type SkillGroup = {
   title: string;
   skills: { name: string; level: 1 | 2 | 3 | 4 }[];

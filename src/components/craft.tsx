@@ -3,16 +3,16 @@
 import { motion } from "motion/react";
 import { GlassCard } from "./ui/glass-card";
 import { SectionHeading } from "./section-heading";
-import { pillars } from "@/lib/data";
+import { pillars, sectionHeadings } from "@/lib/data";
 
 export function Craft() {
   return (
     <section id="craft" className="relative px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="The Craft"
-          title="Seven disciplines, one sensibility."
-          description="Across code, sound, and image — the throughline is craft. Each role below is a real, ongoing practice."
+          eyebrow={sectionHeadings.craft.eyebrow}
+          title={sectionHeadings.craft.title}
+          description={sectionHeadings.craft.description}
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
