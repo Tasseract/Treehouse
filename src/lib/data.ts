@@ -125,6 +125,12 @@ export const sectionHeadings = {
     eyebrow: "Selected Work",
     title: "Things I've done— and shipped from scratch.",
   },
+  videos: {
+    eyebrow: "Video Works",
+    title: "Featured video shorts from YouTube.",
+    description:
+      "Click a thumbnail to open a native embedded player without leaving the page.",
+  },
 };
 
 export type SkillGroup = {
@@ -187,6 +193,12 @@ export type Project = {
   cta: string;
 };
 
+export type Video = {
+  title: string;
+  description: string;
+  url: string;
+};
+
 export const projects: Project[] = [
   {
     title: "IYVIX",
@@ -223,5 +235,13 @@ export const projects: Project[] = [
     href: "https://github.com/Tasseract",
     external: true,
     cta: "github.com/Tasseract",
+  },
+];
+
+export const videos: Video[] = [
+  {
+    title: "Earth and Thea: Procedural Planet Demo",
+    description: "A short animation of my Procedural Noise/Musgrave texture seen as final output.",
+    url: "https://youtu.be/s865kzP8BNU?si=PGckWHg5UrQLmrPE",
   },
 ];

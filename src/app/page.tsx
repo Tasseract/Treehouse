@@ -7,6 +7,7 @@ import { Nav } from "@/components/nav";
 import { Projects } from "@/components/projects";
 import { Tech } from "@/components/tech";
 import { Gallery } from "@/components/gallery";
+import { Videos } from "../components/videos";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Tech />
         <Projects />
         <Gallery />
+        <Videos />
         <Contact />
       </main>
       <Footer />
