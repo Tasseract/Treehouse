@@ -13,7 +13,7 @@ export const profile = {
   shortName: "Troy",
   role: "BS Information Technology",
   school: "Mariano Marcos State University",
-  badge: "Open to On-The-Job Training, can do summer job as well",
+  badge: "Open to On-The-Job Training and Internship Opportunities",
   tagline:
     "Information-technology student crafting at the intersection of code, sound, and image.",
   about: {
@@ -21,7 +21,7 @@ export const profile = {
     paragraphs: [
       "I'm a Bachelor of Science in Information Technology student at Mariano Marcos State University — but I've never thought of myself as \"just a coder.\"",
       "I work across software development, music composition, animation, photography and film — chasing the same thing in each: a feeling of considered craft. I'm formally trained in modern, AI-augmented workflows, and I treat AI as a multiplier on what I can do unaided.",
-      "I'm looking for an On-The-Job Training opportunity where I can contribute meaningfully and keep growing.",
+      "I'm looking for an On-The-Job Training opportunity since it is a university requirement.",
     ],
   },
   location: "Currimao, Ilocos Norte · Philippines",
@@ -51,7 +51,7 @@ export const pillars: Pillar[] = [
     accent: "primary",
   },
   {
-    title: "Animator & 3D Designer",
+    title: "3D Artist & Animator",
     caption: "Blender",
     description:
       "Modeling, procedural textures and animation.",
@@ -97,6 +97,14 @@ export const pillars: Pillar[] = [
       "Studying networks, systems and modern AI-augmented workflows as a discipline.",
     icon: GraduationCap,
     accent: "primary",
+  },
+  {
+    title: "Digital Marketer & Ad Designer",
+    caption: "Social Media Marketing",
+    description:
+      "Creating engaging content and managing online presence.",
+    icon: Wand2,
+    accent: "secondary",
   },
 ];
 
@@ -169,6 +177,15 @@ export const projects: Project[] = [
     href: "https://iyvix.com",
     external: true,
     cta: "Visit IYVIX.com",
+  },
+    {
+    title: "BIRrevamped",
+    caption: "Modernized BIR eServices",
+    description:
+      "A modernized version of the Bureau of Internal Revenue's eServices platform. Solving its current problems and giving user centric experience. Proof of concept that it can be done.",
+    href: "https://github.com/Tasseract",
+    external: true,
+    cta: "github.com/Tasseract",
   },
   {
     title: "Procedural Musgrave/Noise Texture",
