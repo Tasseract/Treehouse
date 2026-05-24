@@ -9,20 +9,20 @@ import {
 } from "lucide-react";
 
 export const profile = {
-  name: "Jhalen Troy Jose",
-  shortName: "Troy",
-  role: "Link hub curator",
+  name: "Jhalen Troy",
+  shortName: "Jhalen",
+  role: "Link Hub Curator",
   school: "Mariano Marcos State University",
-  title: "A living hub for my projects, profiles, and contact points.",
-  badge: "Dynamic link tree · built with Next.js",
+  title: "Treehouse — a link hub for the places I share most.",
+  badge: "Treehouse by Jhalen Troy",
   tagline:
-    "This site surfaces the most important places to find my work, my code, and how to connect.",
+    "A single page for my most useful links, profiles, and contact points.",
   about: {
-    headline: "A maker, across mediums.",
+    headline: "A quick home for my most important links.",
     paragraphs: [
-      "I'm a Bachelor of Science in Information Technology student at Mariano Marcos State University — but I've never thought of myself as \"just a coder.\"",
-      "I work across software development, music composition, animation, photography and film — chasing the same thing in each: a feeling of considered craft. I'm formally trained in modern, AI-augmented workflows, and I treat AI as a multiplier on what I can do unaided.",
-      "I'm looking for an On-The-Job Training opportunity since it is a university requirement.",
+      "This site is designed to keep things simple: the links that matter most in one place.",
+      "Use the links below to reach me, follow my profiles, or visit the resources I want to share.",
+      "Treehouse is my personal link hub, not a portfolio.",
     ],
   },
   location: "Currimao, Ilocos Norte · Philippines",

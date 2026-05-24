@@ -28,13 +28,13 @@ export function LinkTree() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="text-sm uppercase tracking-[0.28em] text-[var(--md-on-surface-variant)]">
-              Link tree
+              Treehouse
             </p>
             <h2 className="mt-3 text-4xl font-semibold tracking-tight text-[var(--md-on-surface)] sm:text-5xl">
-              A single hub for the places that matter.
+              A direct hub for the links I want you to find first.
             </h2>
             <p className="mt-4 text-base leading-7 text-[var(--md-on-surface-variant)]">
-              Search or scroll to discover the spaces where I share work, code, and creative updates.
+              Browse the links below to connect, follow, and explore. Add or edit entries in <code>src/lib/data.ts</code>.
             </p>
           </div>
 
