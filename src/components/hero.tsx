@@ -27,7 +27,7 @@ export function Hero() {
     >
       <div className="absolute right-6 top-6 z-10 flex items-center gap-3">
         <div className="hidden rounded-full bg-[var(--md-surface-container-high)]/90 px-4 py-2 text-xs uppercase tracking-[0.28em] text-[var(--md-on-surface-variant)] shadow-sm shadow-black/5 sm:inline-flex">
-          {profile.shortName}'s hub
+          {profile.shortName}&apos;s hub
         </div>
         <ThemeToggle />
       </div>

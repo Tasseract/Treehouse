@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* ============================================================
-   Material 3 expressive tokens — light defaults
-   ============================================================ */
 :root {
   --md-primary: #5b5fef;
   --md-on-primary: #ffffff;
@@ -26,15 +23,9 @@
 
   --md-outline: #777680;
   --md-outline-variant: #c7c5d0;
-
-  --md-shadow-color: 220 30% 5%;
-
-  /* Glass recipes */
   --glass-bg: rgba(255, 255, 255, 0.55);
   --glass-border: rgba(255, 255, 255, 0.7);
   --glass-shadow: 0 8px 32px -8px rgba(20, 22, 60, 0.18);
-
-  /* Hero gradient blobs */
   --blob-1: #c8caff;
   --blob-2: #ffd3c3;
   --blob-3: #d9c8ff;
@@ -63,59 +54,49 @@
 
   --md-outline: #918f9a;
   --md-outline-variant: #46464f;
-
-  --md-shadow-color: 0 0% 0%;
-
   --glass-bg: rgba(40, 42, 56, 0.62);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.65);
-
   --blob-1: #4d52c8;
   --blob-2: #c8593a;
   --blob-3: #7a52d0;
 }
 
-/* ============================================================
-   Tailwind v4 theme bridge
-   ============================================================ */
 @theme inline {
   --color-primary: var(--md-primary);
   --color-on-primary: var(--md-on-primary);
   --color-primary-container: var(--md-primary-container);
   --color-on-primary-container: var(--md-on-primary-container);
-
   --color-secondary: var(--md-secondary);
   --color-on-secondary: var(--md-on-secondary);
   --color-secondary-container: var(--md-secondary-container);
   --color-on-secondary-container: var(--md-on-secondary-container);
-
   --color-surface: var(--md-surface);
   --color-surface-container: var(--md-surface-container);
   --color-surface-container-high: var(--md-surface-container-high);
   --color-surface-container-highest: var(--md-surface-container-highest);
   --color-on-surface: var(--md-on-surface);
   --color-on-surface-variant: var(--md-on-surface-variant);
-
   --color-outline: var(--md-outline);
   --color-outline-variant: var(--md-outline-variant);
-
   --font-display: var(--font-display), "Inter", system-ui, sans-serif;
   --font-sans: var(--font-display), "Inter", system-ui, sans-serif;
 }
 
-/* ============================================================
-   Base resets
-   ============================================================ */
 * {
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html {
+  min-height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100%;
+  margin: 0;
   background: var(--md-surface);
   color: var(--md-on-surface);
   font-family: var(--font-display), "Inter", system-ui, sans-serif;
@@ -133,27 +114,12 @@ body {
   color: var(--md-on-primary);
 }
 
-/* Material 3 focus ring */
 :focus-visible {
   outline: 3px solid var(--md-primary);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Reduce motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* ============================================================
-   Reusable utility classes
-   ============================================================ */
 @utility glass {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -170,7 +136,6 @@ body {
   box-shadow: var(--glass-shadow);
 }
 
-/* Hero animated blobs */
 .hero-blob {
   position: absolute;
   border-radius: 50%;
@@ -185,11 +150,13 @@ body {
   33% { transform: translate(8%, -6%) scale(1.08); }
   66% { transform: translate(-5%, 4%) scale(0.96); }
 }
+
 @keyframes drift-2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(-6%, 8%) scale(1.04); }
   66% { transform: translate(7%, -3%) scale(1.1); }
 }
+
 @keyframes drift-3 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(4%, -8%) scale(1.05); }
@@ -199,13 +166,151 @@ body {
 .blob-2 { animation: drift-2 26s ease-in-out infinite; background: var(--blob-2); }
 .blob-3 { animation: drift-3 30s ease-in-out infinite; background: var(--blob-3); }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: var(--md-outline-variant);
+.treehouse-orbit {
+  position: absolute;
+  inset: 10%;
+  border: 1px solid color-mix(in srgb, var(--md-outline-variant) 58%, transparent);
   border-radius: 999px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
+  transform: rotate(-12deg);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--md-outline); background-clip: padding-box; border: 2px solid transparent; }
+
+.treehouse-orbit::before,
+.treehouse-orbit::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: var(--md-primary);
+}
+
+.treehouse-orbit::before {
+  right: 8%;
+  top: 18%;
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+.treehouse-orbit::after {
+  left: 18%;
+  bottom: 11%;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--md-secondary);
+}
+
+.treehouse-panel,
+.treehouse-group {
+  overflow: hidden;
+  overflow: clip;
+  isolation: isolate;
+  clip-path: inset(0 round 36px);
+}
+
+.treehouse-group {
+  border-radius: 30px;
+  clip-path: inset(0 round 30px);
+}
+
+.treehouse-link {
+  --branch-accent: var(--md-primary);
+  position: relative;
+  display: grid;
+  min-height: 5.2rem;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 1.65rem;
+  align-items: center;
+  gap: 0.85rem;
+  overflow: hidden;
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--md-surface-container-lowest) 72%, transparent);
+  border: 1px solid var(--glass-border);
+  color: var(--md-on-surface);
+  padding: 0.78rem 0.9rem;
+  text-decoration: none;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.treehouse-link:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: color-mix(in srgb, var(--branch-accent) 58%, var(--glass-border));
+  background: color-mix(in srgb, var(--md-surface-container-lowest) 84%, var(--branch-accent) 8%);
+  box-shadow: 0 18px 48px -18px color-mix(in srgb, var(--branch-accent) 55%, black);
+}
+
+.treehouse-link--fern { --branch-accent: #6fd69a; }
+.treehouse-link--sun { --branch-accent: var(--md-secondary); }
+.treehouse-link--sky { --branch-accent: #70c8ff; }
+.treehouse-link--ember { --branch-accent: #ff9b78; }
+.treehouse-link--ink { --branch-accent: var(--md-primary); }
+
+.treehouse-link__icon {
+  display: grid;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 15px;
+  background: color-mix(in srgb, var(--branch-accent) 20%, var(--md-surface-container-high));
+  color: color-mix(in srgb, var(--branch-accent) 68%, var(--md-on-surface));
+}
+
+.treehouse-link__title,
+.treehouse-link__label {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.treehouse-link__title {
+  font-size: clamp(1.05rem, 2.45vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.treehouse-link__label {
+  margin-top: 0.25rem;
+  color: var(--md-on-surface-variant);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.treehouse-link__arrow {
+  justify-self: end;
+  color: var(--md-on-surface-variant);
+  transition: transform 220ms ease, color 220ms ease;
+}
+
+.treehouse-link:hover .treehouse-link__arrow {
+  color: var(--branch-accent);
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 760px) {
+  .treehouse-link {
+    min-height: 5rem;
+    grid-template-columns: 2.65rem minmax(0, 1fr) 1.35rem;
+    border-radius: 20px;
+    gap: 0.75rem;
+    padding: 0.75rem 0.8rem;
+  }
+
+  .treehouse-link__icon {
+    width: 2.65rem;
+    border-radius: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

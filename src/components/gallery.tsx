@@ -5,14 +5,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { SectionHeading } from "./section-heading";
 
-const images = [
-  { src: require("../../assets/Planet 1.png"), alt: "Planet 1" },
-  { src: require("../../assets/Planet 2.png"), alt: "Planet 2" },
-  { src: require("../../assets/Planet 3.png"), alt: "Planet 3" },
-  { src: require("../../assets/shot1.png"), alt: "Shot 1" },
-  { src: require("../../assets/shot2.png"), alt: "Shot 2" },
-  { src: require("../../assets/shot3.png"), alt: "Shot 3" },
-];
+const images: { src: string; alt: string }[] = [];
 
 export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<typeof images[number] | null>(null);

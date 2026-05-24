@@ -1,37 +1,140 @@
 import {
+  AtSign,
   Camera,
   Clapperboard,
   Code2,
+  Compass,
   Film,
   GraduationCap,
+  Globe,
+  Link as LinkIcon,
+  Mail,
   Music,
+  Sparkles,
   Wand2,
 } from "lucide-react";
 
-export const profile = {
-  name: "Jhalen Troy",
-  shortName: "Jhalen",
-  role: "Link Hub Curator",
-  school: "Mariano Marcos State University",
-  title: "Treehouse — a link hub for the places I share most.",
-  badge: "Treehouse by Jhalen Troy",
-  tagline:
-    "A single page for my most useful links, profiles, and contact points.",
-  about: {
-    headline: "A quick home for my most important links.",
-    paragraphs: [
-      "This site is designed to keep things simple: the links that matter most in one place.",
-      "Use the links below to reach me, follow my profiles, or visit the resources I want to share.",
-      "Treehouse is my personal link hub, not a portfolio.",
+export const treehouse = {
+  name: "Treehouse",
+  handle: "@Tasseract",
+  signal: "link hub",
+  intro: "A compact canopy of exits.",
+  location: "Currimao, Ilocos Norte",
+};
+
+export type TreehouseLink = {
+  title: string;
+  href: string;
+  label: string;
+  icon: typeof LinkIcon;
+  accent: "fern" | "sun" | "sky" | "ember" | "ink";
+  featured?: boolean;
+};
+
+export type TreehouseLinkGroup = {
+  title: string;
+  links: TreehouseLink[];
+};
+
+// Add, remove, or edit links here. The page renders these groups automatically.
+export const treehouseGroups: TreehouseLinkGroup[] = [
+  {
+    title: "Main Branches",
+    links: [
+      {
+        title: "GitHub",
+        href: "https://github.com/Tasseract",
+        label: "Code, experiments, repositories",
+        icon: Code2,
+        accent: "ink",
+        featured: true,
+      },
+      {
+        title: "Email",
+        href: "mailto:jhalentroyjose@gmail.com",
+        label: "jhalentroyjose@gmail.com",
+        icon: Mail,
+        accent: "sun",
+        featured: true,
+      },
+      {
+        title: "LinkedIn",
+        href: "https://www.linkedin.com/",
+        label: "Professional profile",
+        icon: Globe,
+        accent: "sky",
+      },
     ],
   },
-  location: "Currimao, Ilocos Norte · Philippines",
+  {
+    title: "Social Roots",
+    links: [
+      {
+        title: "Instagram",
+        href: "https://www.instagram.com/",
+        label: "Photos and visual fragments",
+        icon: Camera,
+        accent: "ember",
+      },
+      {
+        title: "YouTube",
+        href: "https://www.youtube.com/",
+        label: "Video work and uploads",
+        icon: Film,
+        accent: "fern",
+      },
+      {
+        title: "Contact Card",
+        href: "mailto:jhalentroyjose@gmail.com",
+        label: "Fastest direct route",
+        icon: AtSign,
+        accent: "sky",
+      },
+    ],
+  },
+  {
+    title: "Wayfinding",
+    links: [
+      {
+        title: "Portfolio Archive",
+        href: "https://github.com/Tasseract",
+        label: "Collected work",
+        icon: Compass,
+        accent: "fern",
+      },
+      {
+        title: "Current Drop",
+        href: "https://iyvix.com",
+        label: "Live project",
+        icon: Sparkles,
+        accent: "sun",
+      },
+    ],
+  },
+];
+
+export const footnotes = ["quiet", "static", "editable in data.ts"];
+
+// Legacy exports are kept so older, unused portfolio components still type-check.
+export const profile = {
+  name: "Treehouse",
+  shortName: "Treehouse",
+  role: "Link hub",
+  school: "Static site",
+  title: "Treehouse — a link hub for the places I share most.",
+  badge: "Treehouse",
+  tagline: "A compact canopy of exits.",
+  about: {
+    headline: "Links only.",
+    paragraphs: ["Treehouse is a static link hub edited from src/lib/data.ts."],
+  },
+  location: treehouse.location,
   email: "jhalentroyjose@gmail.com",
   phone: "+63 960 336 8917",
   github: "https://github.com/Tasseract",
   githubHandle: "Tasseract",
   age: 21,
-  languages: ["English", "Filipino", "Ilocano", "German (basic)"],
+  languages: ["English", "Filipino", "Ilocano"],
 };
 
 export type LinkItem = {
@@ -42,43 +145,15 @@ export type LinkItem = {
   accent?: "primary" | "secondary";
 };
 
-export const links: LinkItem[] = [
-  {
-    title: "Email",
-    description: "Start a conversation directly in your inbox.",
-    href: "mailto:jhalentroyjose@gmail.com",
-    external: true,
-    accent: "primary",
-  },
-  {
-    title: "GitHub",
-    description: "Browse public code, experiments, and archived projects.",
-    href: "https://github.com/Tasseract",
-    external: true,
-    accent: "secondary",
-  },
-  {
-    title: "Treehouse repo",
-    description: "Inspect the code behind this dynamic link hub.",
-    href: "https://github.com/Tasseract/Treehouse",
-    external: true,
-    accent: "primary",
-  },
-  {
-    title: "Personal website",
-    description: "Visit the live site that inspired this link tree design.",
-    href: "https://troy.vercel.app",
-    external: true,
-    accent: "secondary",
-  },
-  {
-    title: "Resume",
-    description: "A concise summary of experience and skills.",
-    href: "https://github.com/Tasseract/Treehouse/blob/main/README.md",
-    external: true,
-    accent: "primary",
-  },
-];
+export const links: LinkItem[] = treehouseGroups.flatMap((group) =>
+  group.links.map((link, index) => ({
+    title: link.title,
+    description: link.label,
+    href: link.href,
+    external: link.href.startsWith("http"),
+    accent: index % 2 === 0 ? "primary" : "secondary",
+  })),
+);
 
 export type Pillar = {
   title: string;
@@ -90,94 +165,61 @@ export type Pillar = {
 
 export const pillars: Pillar[] = [
   {
-    title: "Pianist & Composer",
-    caption: "Logic Pro",
-    description:
-      "Original scores and arrangements — produced end-to-end inside Logic Pro.",
+    title: "Links",
+    caption: "Treehouse",
+    description: "Everything points outward.",
     icon: Music,
     accent: "primary",
   },
   {
-    title: "3D Artist & Animator",
-    caption: "Blender",
-    description:
-      "Modeling, procedural textures and animation.",
+    title: "Static",
+    caption: "Data-driven",
+    description: "Edit src/lib/data.ts and the hub updates.",
     icon: Wand2,
     accent: "secondary",
   },
   {
-    title: "Photographer",
-    caption: "Stills",
-    description:
-      "Light, geometry, patience. Crafting a single frame that lingers.",
+    title: "Visual",
+    caption: "Outrageous",
+    description: "A link hub with a little architectural nerve.",
     icon: Camera,
     accent: "primary",
   },
   {
-    title: "Cinematographer",
-    caption: "Motion picture",
-    description:
-      "Composition, blocking and color — telling stories with the camera as a voice.",
+    title: "Focused",
+    caption: "No pitch",
+    description: "Just links.",
     icon: Clapperboard,
     accent: "secondary",
   },
   {
-    title: "Video Editor",
-    caption: "Post-production",
-    description:
-      "Pacing, rhythm and continuity — shaping a story long after the cameras stop.",
+    title: "Media",
+    caption: "Optional",
+    description: "Keep or remove any branch.",
     icon: Film,
     accent: "primary",
   },
   {
-    title: "Coder & Programmer",
-    caption: "github.com/Tasseract",
-    description:
-      "Building software that feels considered — across web, app, and the systems beneath them.",
+    title: "Code",
+    caption: "Editable",
+    description: "The source of truth lives in data.ts.",
     icon: Code2,
     accent: "secondary",
   },
   {
-    title: "IT Student",
-    caption: "MMSU · Continuous learning",
-    description:
-      "Studying networks, systems and modern AI-augmented workflows as a discipline.",
+    title: "Simple",
+    caption: "Static",
+    description: "No database, no CMS.",
     icon: GraduationCap,
     accent: "primary",
-  },
-  {
-    title: "Digital Marketer & Ad Designer",
-    caption: "Social Media Marketing",
-    description:
-      "Creating engaging content and managing online presence.",
-    icon: Wand2,
-    accent: "secondary",
   },
 ];
 
 export const sectionHeadings = {
-  craft: {
-    eyebrow: "The Craft",
-    title: `Eight disciplines, one sensibility.`,
-    description:
-      "Across code, sound, and image — the throughline is craft. Each role below is a real, ongoing practice.",
-  },
-  tech: {
-    eyebrow: "Tech Stack",
-    title: "Tools, languages, and the systems beneath.",
-    description:
-      "Self-reported proficiency on the raw, non-AI-assisted axis. With AI-augmented workflow, output is meaningfully faster.",
-  },
-  projects: {
-    eyebrow: "Selected Work",
-    title: "Things I've done— and shipped from scratch.",
-  },
-  videos: {
-    eyebrow: "Video Works",
-    title: "Featured video shorts from YouTube.",
-    description:
-      "Click a thumbnail to open a native embedded player without leaving the page.",
-  },
+  craft: { eyebrow: "Treehouse", title: "Branches.", description: "Links." },
+  tech: { eyebrow: "Treehouse", title: "Roots.", description: "Static." },
+  projects: { eyebrow: "Treehouse", title: "Exits." },
+  videos: { eyebrow: "Treehouse", title: "Signals.", description: "Media." },
 };
 
 export type SkillGroup = {
@@ -186,49 +228,7 @@ export type SkillGroup = {
 };
 
 export const skillGroups: SkillGroup[] = [
-  {
-    title: "Languages",
-    skills: [
-      { name: "C++", level: 3 },
-      { name: "Swift", level: 3 },
-      { name: "Java", level: 3 },
-      { name: "JavaScript", level: 3 },
-      { name: "Python", level: 3 },
-      { name: "HTML / CSS", level: 2 },
-    ],
-  },
-  {
-    title: "Systems & OS",
-    skills: [
-      { name: "OS Administration", level: 3 },
-      { name: "Terminal Navigation", level: 2 },
-      { name: "OS Virtualization", level: 2 },
-      { name: "Custom EFI / Hackintosh", level: 2 },
-      { name: "PC Building", level: 2 },
-    ],
-  },
-  {
-    title: "Data",
-    skills: [
-      { name: "Database Integration", level: 3 },
-      { name: "MySQL", level: 1 },
-      { name: "Supabase", level: 1 },
-      { name: "PostgreSQL", level: 1 },
-    ],
-  },
-  {
-    title: "Networking",
-    skills: [{ name: "Cisco Packet Tracer", level: 2 }],
-  },
-  {
-    title: "Marketing & Communication",
-    skills: [
-      { name: "Digital Marketing", level: 3 },
-      { name: "Social Media Marketing", level: 3 },
-      { name: "Ad Design", level: 3 },
-      { name: "Dynamic Speaker", level: 3 },
-    ],
-  },
+  { title: "System", skills: [{ name: "Static links", level: 4 }] },
 ];
 
 export type Project = {
@@ -246,49 +246,15 @@ export type Video = {
   url: string;
 };
 
-export const projects: Project[] = [
-  {
-    title: "IYVIX",
-    caption: "Exclusive ecommerce store",
-    description:
-      "A boutique ecommerce experience designed for premium product storytelling and curated drops.",
-    href: "https://iyvix.com",
+export const projects: Project[] = treehouseGroups.flatMap((group) =>
+  group.links.map((link) => ({
+    title: link.title,
+    caption: group.title,
+    description: link.label,
+    href: link.href,
     external: true,
-    cta: "Visit IYVIX.com",
-  },
-  {
-    title: "BIRrevamped",
-    caption: "Modernized BIR eServices",
-    description:
-      "A modernized version of the Bureau of Internal Revenue's eServices platform. Solving its current problems and giving user centric experience. Proof of concept that it can be done.",
-    href: "https://github.com/Tasseract",
-    external: true,
-    cta: "github.com/Tasseract",
-  },
-  {
-    title: "Procedural Musgrave/Noise Texture",
-    caption: "Procedural Texture in Blender",
-    description:
-      "Synthesizes heightmaps, continental terrains, color ramps - within blender, no extra assets.",
-    href: "",
-    external: true,
-    cta: "View Gallery below",
-  },
-  {
-    title: "More on GitHub",
-    caption: "Open source · experiments",
-    description:
-      "Smaller projects, prototypes and works-in-progress — all collected at @Tasseract.",
-    href: "https://github.com/Tasseract",
-    external: true,
-    cta: "github.com/Tasseract",
-  },
-];
+    cta: link.href,
+  })),
+);
 
-export const videos: Video[] = [
-  {
-    title: "Earth and Thea: Procedural Planet Demo",
-    description: "A short animation of my Procedural Noise/Musgrave texture seen as final output.",
-    url: "https://youtu.be/s865kzP8BNU?si=PGckWHg5UrQLmrPE",
-  },
-];
+export const videos: Video[] = [];
