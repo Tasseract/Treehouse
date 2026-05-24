@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Sparkles } from "lucide-react";
 import { MdButton } from "./ui/md-button";
+import { ThemeToggle } from "./theme-toggle";
 import { profile } from "@/lib/data";
 
 const fade = {
@@ -22,8 +23,15 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[80svh] items-center overflow-hidden px-6 py-20"
+      className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pt-32 pb-20 sm:pt-36"
     >
+      <div className="absolute right-6 top-6 z-10 flex items-center gap-3">
+        <div className="hidden rounded-full bg-[var(--md-surface-container-high)]/90 px-4 py-2 text-xs uppercase tracking-[0.28em] text-[var(--md-on-surface-variant)] shadow-sm shadow-black/5 sm:inline-flex">
+          {profile.shortName}'s hub
+        </div>
+        <ThemeToggle />
+      </div>
+
       {/* gradient blobs */}
       <div aria-hidden className="absolute inset-0 -z-10">
         <span className="hero-blob blob-1 left-[-10%] top-[-15%] h-[60vmax] w-[60vmax]" />
@@ -38,28 +46,32 @@ export function Hero() {
       />
 
       <div className="mx-auto w-full max-w-6xl">
+        <motion.div
+          custom={0}
+          initial="hidden"
+          animate="show"
+          variants={fade}
+          className="mb-6 inline-flex items-center gap-2 rounded-full glass backdrop-blur-xl backdrop-saturate-150 px-4 py-1.5 text-xs font-medium text-[var(--md-on-surface-variant)]"
+        >
+          <Sparkles size={14} className="text-[var(--md-primary)]" />
+          {profile.badge}
+        </motion.div>
+
         <motion.h1
           custom={1}
           initial="hidden"
           animate="show"
           variants={fade}
-          className="font-display text-6xl font-semibold tracking-tight text-[var(--md-on-surface)] sm:text-7xl md:text-[clamp(5rem,8vw,7rem)]"
+          className="font-display text-5xl font-semibold tracking-tight text-[var(--md-on-surface)] sm:text-7xl md:text-[clamp(4rem,8vw,8rem)]"
         >
-          Treehouse
+          {profile.name.split(" ").slice(0, -1).join(" ")} {" "}
+          <span className="bg-gradient-to-br from-[var(--md-primary)] via-[var(--md-secondary)] to-[var(--md-primary)] bg-clip-text text-transparent">
+            {profile.name.split(" ").at(-1)}
+          </span>
         </motion.h1>
 
         <motion.p
           custom={2}
-          initial="hidden"
-          animate="show"
-          variants={fade}
-          className="mt-4 text-xl font-medium uppercase tracking-[0.24em] text-[var(--md-primary)]"
-        >
-          By Jhalen Troy
-        </motion.p>
-
-        <motion.p
-          custom={3}
           initial="hidden"
           animate="show"
           variants={fade}
@@ -71,14 +83,17 @@ export function Hero() {
         </motion.p>
 
         <motion.div
-          custom={4}
+          custom={3}
           initial="hidden"
           animate="show"
           variants={fade}
-          className="mt-10"
+          className="mt-10 flex flex-wrap items-center gap-3"
         >
           <MdButton variant="filled" size="lg" href="#links">
-            View links
+            Explore links
+          </MdButton>
+          <MdButton variant="tonal" size="lg" href={profile.github} external>
+            GitHub
           </MdButton>
         </motion.div>
       </div>

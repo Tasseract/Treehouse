@@ -13,9 +13,10 @@ export const profile = {
   shortName: "Jhalen",
   role: "Link Hub Curator",
   school: "Mariano Marcos State University",
-  title: "A simple, direct link hub to surface the links that matter.",
-  badge: "Link hub",
-  tagline: "Designed to keep the path to my links clear and immediate.",
+  title: "Treehouse — a link hub for the places I share most.",
+  badge: "Treehouse by Jhalen Troy",
+  tagline:
+    "A single page for my most useful links, profiles, and contact points.",
   about: {
     headline: "A quick home for my most important links.",
     paragraphs: [
